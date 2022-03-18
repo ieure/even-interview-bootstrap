@@ -4,6 +4,8 @@ set -euo pipefail
 
 LANG=$(basename $PWD | cut -d- -f3)
 
+cd $LANG
+
 if [ "$LANG" = "js" ]; then
     if [ ! -x "$(which npm)" ]; then
         echo "===================="
