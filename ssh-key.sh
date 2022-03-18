@@ -30,7 +30,9 @@ fi
 
 $KEYGEN -q -N "" -t $KEYTYPE -f $KEY
 
-cp $CFG $CFG_BAK
+if [ -d "$DIR" -a -r "$CFG" ]; then
+    cp $CFG $CFG_BAK
+fi
 echo -e "Host github.com\n     IdentityFile $KEY\n" >> $CFG
 chmod 0600 $CFG
 
