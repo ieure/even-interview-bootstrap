@@ -20,7 +20,7 @@ mkdir -p $NAME
 cd $NAME
 
 if [ -x "$(which curl)" ]; then
-    curl -s -O $ZIPF
+    curl -sL -O $ZIPF
 else
     echo "You need to install wget or curl."
     exit 1
