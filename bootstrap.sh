@@ -7,7 +7,7 @@
 
 set -euo pipefail
 
-ZIPF=https://github.com/ieure/even-interview-bootstrap/archive/refs/heads/main.zip
+UPSTREAM=https://github.com/ieure/even-interview-bootstrap.git
 
 if [ -e "$REPO" ]; then
     echo "Sorry, the repo name wasn't specified, so I can't do anything."
@@ -16,27 +16,20 @@ fi
 
 NAME=$(echo $REPO | cut -d/ -f2)
 
-mkdir -p $NAME
-cd $NAME
-
-if [ -x "$(which curl)" ]; then
-    curl -sL -O $ZIPF
-else
-    echo "You need to install wget or curl."
+if [ -x "$(which git)" ]; then
+    echo "Pleast install git, then try again."
     exit 1
 fi
 
-unzip -qjd . main.zip
-rm main.zip
+git clone $UPSTREAM $NAME
+cd $NAME
 
-git init -b main .
+git remote rename origin upstream
 git remote add origin git@github.com:$REPO
 
 ./ssh-key.sh
 ./devsetup.sh
 
-git add .
-git commit --no-gpg-sign -am "Added bootstrap repo"
 git push -u origin main
 
 echo "========================================"
