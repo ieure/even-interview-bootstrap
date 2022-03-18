@@ -1,4 +1,9 @@
 #! /bin/bash
+#
+# This script bootstraps the Even interview repository.
+#
+# If you're reading this instead of running it blindly, great!  You
+# just demonstrated one of our company values, curiosity.
 
 set -euo pipefail
 set -x

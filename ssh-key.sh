@@ -1,8 +1,9 @@
 #! /bin/sh
 #
-# This script configures SSH key-based authentication for GitHub.  If
-# you're reading this instead of running it blindly, great!  You just
-# demonstrated one of our company values, curiosity.
+# This script configures SSH key-based authentication for GitHub.
+#
+# If you're reading this instead of running it blindly, great!  You
+# just demonstrated one of our company values, curiosity.
 
 set -u
 
