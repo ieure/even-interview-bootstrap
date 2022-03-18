@@ -43,6 +43,7 @@ Please make sure your development environment is set up, by running:
 ./devsetup.sh
 ```
 
+If the test outputs "Congratulations, your development environment is working," then your environment is set up correctly.
 
 ## Bugs
 
