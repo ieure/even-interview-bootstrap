@@ -26,7 +26,7 @@ else
     exit 1
 fi
 
-unzip -d . main.zip
+unzip -jd . main.zip
 rm main.zip
 
 git init -b main .
