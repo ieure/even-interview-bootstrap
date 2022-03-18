@@ -1,5 +1,8 @@
 #! /bin/bash
 
+set -euo pipefail
+set -x
+
 ZIPF=https://github.com/ieure/even-interview-bootstrap/archive/refs/heads/main.zip
 
 if [ -e "$REPO" ]; then
@@ -9,7 +12,7 @@ fi
 
 NAME=$(echo $REPO | cut -d/ -f2)
 
-mkdir $NAME
+mkdir -p $NAME
 cd $NAME
 
 if [ -x "$(which wget)" ]; then
@@ -25,7 +28,7 @@ unzip main.zip
 rm main.zip
 mv even-interview-bootstrap-main/* .
 rmdir even-interview-bootstrap-main
-git init .
+git init -b main .
 git remote add origin git@github.com:$REPO
 
 ./ssh-key.sh

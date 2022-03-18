@@ -5,9 +5,30 @@ set -euo pipefail
 LANG=$(basename $PWD | cut -d- -f3)
 
 if [ "$LANG" = "js" ]; then
+    if [ ! -x "$(which npm)" ]; then
+        echo "===================="
+        echo "NPM isn't installed"
+        echo "===================="
+        echo
+        echo "Even's JavaScript interview requires Node 12+ and NPM.  Please install them, then run:"
+        echo
+        echo "    ./devsetup.sh"
+        exit 1
+    fi
+
     npm install
     npm test -- --grep 'DevSetup'
 elif [ "$LANG" = "go" ]; then
+    if [ ! -x "$(which go)" ]; then
+        echo "===================="
+        echo "Go isn't installed"
+        echo "===================="
+        echo
+        echo "Even's Go interview requires Go 1.13+.  Please install it, then run:"
+        echo
+        echo "    ./devsetup.sh"
+        exit 1
+    fi
     go test -run MemoryCache_Basic
 elif [ "$LANG" = "python" ]; then
     pip3 install -r requirements.txt
