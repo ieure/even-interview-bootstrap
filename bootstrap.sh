@@ -21,13 +21,13 @@ mkdir -p $NAME
 cd $NAME
 
 elif [ -x "$(which curl)" ]; then
-    curl -O $ZIPF
+    curl -s -O $ZIPF
 else
     echo "You need to install wget or curl."
     exit 1
 fi
 
-unzip main.zip
+unzip -qq main.zip
 rm main.zip
 mv even-interview-bootstrap-main/* .
 rmdir even-interview-bootstrap-main
