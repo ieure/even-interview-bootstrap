@@ -6,7 +6,6 @@
 # just demonstrated one of our company values, curiosity.
 
 set -euo pipefail
-set -x
 
 ZIPF=https://github.com/ieure/even-interview-bootstrap/archive/refs/heads/main.zip
 
@@ -20,7 +19,7 @@ NAME=$(echo $REPO | cut -d/ -f2)
 mkdir -p $NAME
 cd $NAME
 
-elif [ -x "$(which curl)" ]; then
+if [ -x "$(which curl)" ]; then
     curl -s -O $ZIPF
 else
     echo "You need to install wget or curl."
