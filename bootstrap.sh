@@ -26,10 +26,9 @@ else
     exit 1
 fi
 
-unzip -qq main.zip
+unzip -d . main.zip
 rm main.zip
-mv even-interview-bootstrap-main/* .
-rmdir even-interview-bootstrap-main
+
 git init -b main .
 git remote add origin git@github.com:$REPO
 
