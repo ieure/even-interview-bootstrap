@@ -35,7 +35,6 @@ mv even-interview-bootstrap-main/* .
 rmdir even-interview-bootstrap-main
 git init -b main .
 git remote add origin git@github.com:$REPO
-# Let's not make things harder than they need to be.
 
 ./ssh-key.sh
 ./devsetup.sh
