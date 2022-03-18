@@ -28,19 +28,17 @@ echo
 echo "If this process fails, please ensure that Git is installed and"
 echo "configured for SSH key authentication, then try again."
 
-./ssh-key.sh
-
 git clone $UPSTREAM $NAME
 cd $NAME
+
+./ssh-key.sh
 
 git remote rename origin upstream
 git remote add origin git@github.com:$REPO
 git remote update
 git push -u origin main
 
-
 ./devsetup.sh
-
 
 echo "========================================"
 echo "You're good to go!"
