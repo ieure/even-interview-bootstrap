@@ -20,8 +20,6 @@ NAME=$(echo $REPO | cut -d/ -f2)
 mkdir -p $NAME
 cd $NAME
 
-if [ -x "$(which wget)" ]; then
-    wget $ZIPF;
 elif [ -x "$(which curl)" ]; then
     curl -O $ZIPF
 else
