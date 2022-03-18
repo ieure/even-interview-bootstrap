@@ -21,11 +21,7 @@ CFG=$DIR/config
 CFG_BAK=$DIR/config.even-interview
 
 if [ -f "$KEY" ]; then
-    echo "Looks like you already have a SSH key set up for GitHub.  If this is an old key, please remove it and run this script again."
-    echo "You can remove the key with this command:\n"
-    echo "    rm -rf .ssh/github_id_rsa*\n"
-    echo "(You may also need to edit $CFG to remove references to it)"
-    exit 1
+    exit 0
 fi
 
 $KEYGEN -q -N "" -t $KEYTYPE -f $KEY
@@ -41,6 +37,9 @@ echo "1. Visit https://github.com/settings/keys"
 echo "2. Click \"New SSH key\""
 echo "3. Paste this text into the Key field, and click \"Add SSH key.\"\n"
 cat ${KEY}.pub
+
+echo
+read -n1 -p " --- PRESS ENTER AFTER CONFIGURING GITHUB ---"
 
 echo "\nTo completely remove the changes this script made, you can run:\n"
 echo "    rm $KEY ${KEY}.pub"
