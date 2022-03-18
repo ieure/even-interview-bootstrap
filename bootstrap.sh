@@ -16,21 +16,31 @@ fi
 
 NAME=$(echo $REPO | cut -d/ -f2)
 
-if [ -x "$(which git)" ]; then
+if [ ! -x "$(which git)" ]; then
     echo "Pleast install git, then try again."
     exit 1
 fi
+
+echo "========================================"
+echo "Cloning repo."
+echo "========================================"
+echo
+echo "If this process fails, please ensure that Git is installed and"
+echo "configured for SSH key authentication, then try again."
+
+./ssh-key.sh
 
 git clone $UPSTREAM $NAME
 cd $NAME
 
 git remote rename origin upstream
 git remote add origin git@github.com:$REPO
+git remote update
+git push -u origin main
 
-./ssh-key.sh
+
 ./devsetup.sh
 
-git push -u origin main
 
 echo "========================================"
 echo "You're good to go!"
