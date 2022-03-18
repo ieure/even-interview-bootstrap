@@ -12,9 +12,9 @@ NAME=$(echo $REPO | cut -d/ -f2)
 mkdir $NAME
 cd $NAME
 
-if [ -x wget ]; then
+if [ -x "$(which wget)" ]; then
     wget $ZIPF;
-elif [ -x curl ]; then
+elif [ -x "$(which curl)" ]; then
     curl -O $ZIPF
 else
     echo "You need to install wget or curl."
