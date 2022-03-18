@@ -43,7 +43,7 @@ git push -u origin main
 echo "========================================"
 echo "You're good to go!"
 echo "========================================"
-ecno
+echo
 echo "Great, everything should be working!  Please take a few minutes to read:\n"
 echo "    http://github.com/$REPO/README.md\n"
 echo "It has important information about the interview."
