@@ -36,11 +36,10 @@ rmdir even-interview-bootstrap-main
 git init -b main .
 git remote add origin git@github.com:$REPO
 # Let's not make things harder than they need to be.
-git config commit.gpgSign false
 
 ./ssh-key.sh
 ./devsetup.sh
 
 git add .
-git commit -am "Added bootstrap repo"
+git commit --no-gpg-sign -am "Added bootstrap repo"
 git push -u origin main
